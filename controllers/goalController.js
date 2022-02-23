@@ -12,6 +12,11 @@ const getGoalByID = (req, res) => {
 
 // creates a goal at /api/goals
 const createGoal = (req, res) => {
+  if (!req.body.text) {
+    res.status(400);
+    throw new Error('Please add a text field');
+  }
+  console.log(req.body);
   res.status(200).json({ message: 'create a goal' });
 };
 
